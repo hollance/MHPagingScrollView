@@ -13,23 +13,28 @@
 	CGRect rect = [[UIScreen mainScreen] bounds];
 	int numPages = 3;
 
-	[scrollView setContentSize:CGSizeMake(numPages * rect.size.width, scrollView.bounds.size.height)];
+	CGFloat pageWidth = scrollView.bounds.size.width;
+	CGFloat pageHeight = scrollView.bounds.size.height;
 
-	PageView* pageView = [[PageView alloc] initWithFrame:scrollView.bounds index:1];
+	[scrollView setContentSize:CGSizeMake(numPages * pageWidth, pageHeight)];
+
+	rect = CGRectMake(0, 0, pageWidth, pageHeight);
+
+	PageView* pageView = [[PageView alloc] initWithFrame:rect index:1];
 	[scrollView addSubview:pageView];
 	[pageView release];
 
-	pageView = [[PageView alloc] initWithFrame:scrollView.bounds index:2];
+	pageView = [[PageView alloc] initWithFrame:rect index:2];
 	pageView.center = CGPointMake(pageView.center.x * 3, pageView.center.y);
 	[scrollView addSubview:pageView];
 	[pageView release];
 
-	pageView = [[PageView alloc] initWithFrame:scrollView.bounds index:3];
+	pageView = [[PageView alloc] initWithFrame:rect index:3];
 	pageView.center = CGPointMake(pageView.center.x * 5, pageView.center.y);
 	[scrollView addSubview:pageView];
 	[pageView release];
 	
-	pageControl.numberOfPages = 3;
+	pageControl.numberOfPages = numPages;
 	pageControl.currentPage = 0;
 }
 
