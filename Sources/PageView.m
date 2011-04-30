@@ -3,9 +3,11 @@
 
 @implementation PageView
 
-- (id)initWithFrame:(CGRect)frame index:(int)index
+@synthesize pageIndex;
+
+- (id)init
 {
-	if ((self = [super initWithFrame:frame]))
+	if ((self = [super init]))
 	{
 		self.opaque = YES;
 
@@ -15,7 +17,6 @@
 			blue:(float)arc4random() / 0xFFFFFFFF
 			alpha:1.0];
 
-		self.text = [NSString stringWithFormat:@"%d", index];
 		self.textColor = [UIColor whiteColor];
 		self.textAlignment = UITextAlignmentCenter;
 		self.font = [UIFont boldSystemFontOfSize:36];
@@ -23,9 +24,10 @@
 	return self;
 }
 
-- (void)dealloc
+- (void)setPageIndex:(NSUInteger)newIndex
 {
-	[super dealloc];
+	pageIndex = newIndex;
+	self.text = [NSString stringWithFormat:@"%d", pageIndex];
 }
 
 @end

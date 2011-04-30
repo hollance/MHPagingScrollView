@@ -3,6 +3,6 @@
 {
 }
 
-- (id)initWithFrame:(CGRect)frame index:(int)index;
+@property (nonatomic, assign) NSUInteger pageIndex;
 
 @end

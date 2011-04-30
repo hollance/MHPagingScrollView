@@ -52,28 +52,28 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="IBUIPageControl" id="609289072">
 							<reference key="NSNextResponder" ref="361271949"/>
-							<int key="NSvFlags">1316</int>
+							<int key="NSvFlags">1290</int>
 							<object class="NSPSMatrix" key="NSFrameMatrix"/>
 							<string key="NSFrame">{{0, 424}, {320, 36}}</string>
 							<reference key="NSSuperview" ref="361271949"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="453046043"/>
+							<reference key="NSNextKeyView" ref="108078305"/>
 							<bool key="IBUIOpaque">NO</bool>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							<int key="IBUIContentHorizontalAlignment">0</int>
 							<int key="IBUIContentVerticalAlignment">0</int>
 							<int key="IBUINumberOfPages">3</int>
 						</object>
-						<object class="IBUIView" id="453046043">
+						<object class="IBUIView" id="108078305">
 							<reference key="NSNextResponder" ref="361271949"/>
 							<int key="NSvFlags">274</int>
 							<object class="NSMutableArray" key="NSSubviews">
 								<bool key="EncodedWithXMLCoder">YES</bool>
-								<object class="IBUIScrollView" id="538788746">
-									<reference key="NSNextResponder" ref="453046043"/>
-									<int key="NSvFlags">268</int>
+								<object class="IBUIScrollView" id="663150079">
+									<reference key="NSNextResponder" ref="108078305"/>
+									<int key="NSvFlags">274</int>
 									<string key="NSFrame">{{50, 0}, {220, 416}}</string>
-									<reference key="NSSuperview" ref="453046043"/>
+									<reference key="NSSuperview" ref="108078305"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="609289072"/>
 									<object class="NSColor" key="IBUIBackgroundColor">
@@ -91,7 +91,6 @@
 							<string key="NSFrameSize">{320, 416}</string>
 							<reference key="NSSuperview" ref="361271949"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<object class="NSColor" key="IBUIBackgroundColor">
 								<int key="NSColorSpace">1</int>
 								<bytes key="NSRGB">MC4yNTA5ODAzOTIyIDAuMjUwOTgwMzkyMiAwLjI1MDk4MDM5MjIAA</bytes>
@@ -102,7 +101,7 @@
 					<string key="NSFrame">{{0, 20}, {320, 460}}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
-					<reference key="NSNextKeyView" ref="538788746"/>
+					<reference key="NSNextKeyView" ref="663150079"/>
 					<object class="NSColor" key="IBUIBackgroundColor">
 						<int key="NSColorSpace">3</int>
 						<bytes key="NSWhite">MAA</bytes>
@@ -123,7 +122,6 @@
 				<string key="NSFrameSize">{320, 480}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
 					<bytes key="NSRGB">MSAxIDEAA</bytes>
@@ -164,14 +162,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">scrollView</string>
-						<reference key="source" ref="943309135"/>
-						<reference key="destination" ref="538788746"/>
-					</object>
-					<int key="connectionID">19</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">pageControl</string>
 						<reference key="source" ref="943309135"/>
 						<reference key="destination" ref="609289072"/>
@@ -181,7 +171,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">delegate</string>
-						<reference key="source" ref="538788746"/>
+						<reference key="source" ref="663150079"/>
 						<reference key="destination" ref="943309135"/>
 					</object>
 					<int key="connectionID">21</int>
@@ -198,10 +188,18 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">scrollView</string>
-						<reference key="source" ref="453046043"/>
-						<reference key="destination" ref="538788746"/>
+						<reference key="source" ref="108078305"/>
+						<reference key="destination" ref="663150079"/>
 					</object>
 					<int key="connectionID">24</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">pagingScrollView</string>
+						<reference key="source" ref="943309135"/>
+						<reference key="destination" ref="663150079"/>
+					</object>
+					<int key="connectionID">25</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -249,7 +247,7 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="609289072"/>
-							<reference ref="453046043"/>
+							<reference ref="108078305"/>
 						</object>
 						<reference key="parent" ref="943309135"/>
 						<string key="objectName">View</string>
@@ -261,17 +259,17 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">23</int>
-						<reference key="object" ref="453046043"/>
+						<reference key="object" ref="108078305"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="538788746"/>
+							<reference ref="663150079"/>
 						</object>
 						<reference key="parent" ref="361271949"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">18</int>
-						<reference key="object" ref="538788746"/>
-						<reference key="parent" ref="453046043"/>
+						<reference key="object" ref="663150079"/>
+						<reference key="parent" ref="108078305"/>
 					</object>
 				</object>
 			</object>
@@ -324,7 +322,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">24</int>
+			<int key="maxID">25</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -388,7 +386,7 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>pageControl</string>
-							<string>scrollView</string>
+							<string>pagingScrollView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -401,7 +399,7 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>pageControl</string>
-							<string>scrollView</string>
+							<string>pagingScrollView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -410,7 +408,7 @@
 								<string key="candidateClassName">UIPageControl</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">scrollView</string>
+								<string key="name">pagingScrollView</string>
 								<string key="candidateClassName">UIScrollView</string>
 							</object>
 						</object>
