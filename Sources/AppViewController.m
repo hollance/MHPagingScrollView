@@ -6,35 +6,28 @@
 
 @synthesize scrollView, pageControl;
 
+- (void)addPageAtIndex:(int)index
+{
+	CGRect rect = CGRectMake(pageSize.width * index, 0, pageSize.width, pageSize.height);
+	PageView* pageView = [[PageView alloc] initWithFrame:rect index:index];
+	[scrollView addSubview:pageView];
+	[pageView release];
+
+	numPages++;
+	[scrollView setContentSize:CGSizeMake(numPages * pageSize.width, pageSize.height)];
+	pageControl.numberOfPages = numPages;
+}
+
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-	
-	CGRect rect = [[UIScreen mainScreen] bounds];
-	int numPages = 3;
 
-	CGFloat pageWidth = scrollView.bounds.size.width;
-	CGFloat pageHeight = scrollView.bounds.size.height;
+	numPages = 0;
+	pageSize = scrollView.bounds.size;
 
-	[scrollView setContentSize:CGSizeMake(numPages * pageWidth, pageHeight)];
+	for (int t = 0; t < 2; ++t)
+		[self addPageAtIndex:t];
 
-	rect = CGRectMake(0, 0, pageWidth, pageHeight);
-
-	PageView* pageView = [[PageView alloc] initWithFrame:rect index:1];
-	[scrollView addSubview:pageView];
-	[pageView release];
-
-	pageView = [[PageView alloc] initWithFrame:rect index:2];
-	pageView.center = CGPointMake(pageView.center.x * 3, pageView.center.y);
-	[scrollView addSubview:pageView];
-	[pageView release];
-
-	pageView = [[PageView alloc] initWithFrame:rect index:3];
-	pageView.center = CGPointMake(pageView.center.x * 5, pageView.center.y);
-	[scrollView addSubview:pageView];
-	[pageView release];
-	
-	pageControl.numberOfPages = numPages;
 	pageControl.currentPage = 0;
 }
 
@@ -78,6 +71,15 @@
 {
 	CGFloat width = theScrollView.bounds.size.width;
 	pageControl.currentPage = (theScrollView.contentOffset.x + width/2.0f) / width;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView*)theScrollView
+{
+	CGFloat width = theScrollView.bounds.size.width;
+	int currentPage = (theScrollView.contentOffset.x + width/2.0f) / width;
+
+	if (currentPage == numPages - 1)
+		[self addPageAtIndex:numPages];
 }
 
 @end
