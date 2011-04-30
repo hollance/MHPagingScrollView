@@ -24,7 +24,7 @@
 		7B5F044D136302F3006782F8 /* AppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F043E136302F3006782F8 /* AppViewController.m */; };
 		7B5F044E136302F3006782F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F043F136302F3006782F8 /* main.m */; };
 		7B94AC4C136BF9900079ECCB /* PageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B94AC4B136BF9900079ECCB /* PageView.m */; };
-		7B94AC50136C035A0079ECCB /* MHPreviewScrollViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B94AC4F136C035A0079ECCB /* MHPreviewScrollViewContainer.m */; };
+		7BC2ED65136C3A4100A9D610 /* MHPagingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC2ED64136C3A4100A9D610 /* MHPagingScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,8 +51,8 @@
 		7B5F0440136302F3006782F8 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		7B94AC4A136BF9900079ECCB /* PageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageView.h; sourceTree = "<group>"; };
 		7B94AC4B136BF9900079ECCB /* PageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageView.m; sourceTree = "<group>"; };
-		7B94AC4E136C035A0079ECCB /* MHPreviewScrollViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHPreviewScrollViewContainer.h; sourceTree = "<group>"; };
-		7B94AC4F136C035A0079ECCB /* MHPreviewScrollViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHPreviewScrollViewContainer.m; sourceTree = "<group>"; };
+		7BC2ED63136C3A4100A9D610 /* MHPagingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MHPagingScrollView.h; sourceTree = "<group>"; };
+		7BC2ED64136C3A4100A9D610 /* MHPagingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHPagingScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,8 +134,8 @@
 				7B5F0440136302F3006782F8 /* Prefix.pch */,
 				7B94AC4A136BF9900079ECCB /* PageView.h */,
 				7B94AC4B136BF9900079ECCB /* PageView.m */,
-				7B94AC4E136C035A0079ECCB /* MHPreviewScrollViewContainer.h */,
-				7B94AC4F136C035A0079ECCB /* MHPreviewScrollViewContainer.m */,
+				7BC2ED63136C3A4100A9D610 /* MHPagingScrollView.h */,
+				7BC2ED64136C3A4100A9D610 /* MHPagingScrollView.m */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -214,7 +214,7 @@
 				7B5F044D136302F3006782F8 /* AppViewController.m in Sources */,
 				7B5F044E136302F3006782F8 /* main.m in Sources */,
 				7B94AC4C136BF9900079ECCB /* PageView.m in Sources */,
-				7B94AC50136C035A0079ECCB /* MHPreviewScrollViewContainer.m in Sources */,
+				7BC2ED65136C3A4100A9D610 /* MHPagingScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

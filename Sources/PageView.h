@@ -3,6 +3,6 @@
 {
 }
 
-@property (nonatomic, assign) NSUInteger pageIndex;
+- (void)setPageIndex:(int)newIndex;
 
 @end

@@ -3,8 +3,6 @@
 
 @implementation PageView
 
-@synthesize pageIndex;
-
 - (id)init
 {
 	if ((self = [super init]))
@@ -24,10 +22,9 @@
 	return self;
 }
 
-- (void)setPageIndex:(NSUInteger)newIndex
+- (void)setPageIndex:(int)newIndex
 {
-	pageIndex = newIndex;
-	self.text = [NSString stringWithFormat:@"%d", pageIndex];
+	self.text = [NSString stringWithFormat:@"%d", newIndex];
 }
 
 @end

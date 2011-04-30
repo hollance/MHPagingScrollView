@@ -1,20 +1,14 @@
 
-@interface AppViewController : UIViewController <UIScrollViewDelegate>
+#import "MHPagingScrollView.h"
+
+@interface AppViewController : UIViewController <MHPagingScrollViewDelegate, UIScrollViewDelegate>
 {
 	int numPages;
-	NSMutableSet* recycledPages;
-	NSMutableSet* visiblePages;
-	CGFloat previewWidth;
-
-	int firstVisiblePageIndexBeforeRotation;      // for autorotation
-	CGFloat percentScrolledIntoFirstVisiblePage;
 }
 
-@property (nonatomic, retain) IBOutlet UIScrollView* pagingScrollView;
+@property (nonatomic, retain) IBOutlet MHPagingScrollView* pagingScrollView;
 @property (nonatomic, retain) IBOutlet UIPageControl* pageControl;
 
 - (IBAction)pageTurn;
-
-- (void)reloadPages;
 
 @end
