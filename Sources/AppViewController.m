@@ -71,13 +71,13 @@
 #pragma mark -
 #pragma mark UIScrollViewDelegate
 
-- (void)scrollViewDidScroll:(UIScrollView*)theScrollView
+- (void)scrollViewDidScroll:(UIScrollView *)theScrollView
 {
 	pageControl.currentPage = [pagingScrollView indexOfSelectedPage];
 	[pagingScrollView scrollViewDidScroll];
 }
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView*)theScrollView
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)theScrollView
 {
 	if ([pagingScrollView indexOfSelectedPage] == numPages - 1)
 	{
@@ -90,14 +90,14 @@
 #pragma mark -
 #pragma mark MHPagingScrollViewDelegate
 
-- (NSInteger)numberOfPagesInPagingScrollView:(MHPagingScrollView*)pagingScrollView
+- (NSInteger)numberOfPagesInPagingScrollView:(MHPagingScrollView *)pagingScrollView
 {
 	return numPages;
 }
 
-- (UIView*)pagingScrollView:(MHPagingScrollView*)thePagingScrollView pageForIndex:(NSInteger)index
+- (UIView *)pagingScrollView:(MHPagingScrollView *)thePagingScrollView pageForIndex:(NSInteger)index
 {
-	PageView* pageView = (PageView*)[thePagingScrollView dequeueReusablePage];
+	PageView *pageView = (PageView *)[thePagingScrollView dequeueReusablePage];
 	if (pageView == nil)
 		pageView = [[[PageView alloc] init] autorelease];
 

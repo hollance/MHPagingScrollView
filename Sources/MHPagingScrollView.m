@@ -46,17 +46,16 @@
 #import "MHPagingScrollView.h"
 
 @interface MHPage : NSObject
-{
-}
 
-@property (nonatomic, retain) UIView* view;
+@property (nonatomic, retain) UIView *view;
 @property (nonatomic, assign) NSInteger index;
 
 @end
 
 @implementation MHPage
 
-@synthesize view, index;
+@synthesize view;
+@synthesize index;
 
 - (void)dealloc
 {
@@ -67,10 +66,18 @@
 @end
 
 @implementation MHPagingScrollView
+{
+	NSMutableSet *recycledPages;
+	NSMutableSet *visiblePages;
 
-@synthesize previewInsets, pagingDelegate;
+	int firstVisiblePageIndexBeforeRotation;      // for autorotation
+	CGFloat percentScrolledIntoFirstVisiblePage;
+}
 
-- (void)setup
+@synthesize previewInsets;
+@synthesize pagingDelegate;
+
+- (void)commonInit
 {
 	recycledPages = [[NSMutableSet alloc] init];
 	visiblePages  = [[NSMutableSet alloc] init];
@@ -85,16 +92,16 @@
 {
 	if ((self = [super initWithFrame:frame]))
 	{
-		[self setup];
+		[self commonInit];
 	}
 	return self;
 }
 
-- (id)initWithCoder:(NSCoder*)aDecoder
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
 	if ((self = [super initWithCoder:aDecoder]))
 	{
-		[self setup];
+		[self commonInit];
 	}
 	return self;
 }
@@ -106,7 +113,7 @@
 	[super dealloc];
 }
 
-- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent*)event
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
 {
 	// This allows for touch handling outside of the scroll view's bounds.
 
@@ -156,7 +163,7 @@
 
 - (BOOL)isDisplayingPageForIndex:(NSUInteger)index
 {
-	for (MHPage* page in visiblePages)
+	for (MHPage *page in visiblePages)
 	{
 		if (page.index == index)
 			return YES;
@@ -164,12 +171,12 @@
 	return NO;
 }
 
-- (UIView*)dequeueReusablePage
+- (UIView *)dequeueReusablePage
 {
-	MHPage* page = [recycledPages anyObject];
+	MHPage *page = [recycledPages anyObject];
 	if (page != nil)
 	{
-		UIView* view = [[page.view retain] autorelease];
+		UIView *view = [[page.view retain] autorelease];
 		[recycledPages removeObject:page];
 		return view;
 	}
@@ -195,7 +202,7 @@
 	firstNeededPageIndex = MAX(firstNeededPageIndex, 0);
 	lastNeededPageIndex = MIN(lastNeededPageIndex, [self numberOfPages] - 1);
 
-	for (MHPage* page in visiblePages)
+	for (MHPage *page in visiblePages)
 	{
 		if (page.index < firstNeededPageIndex || page.index > lastNeededPageIndex)
 		{
@@ -210,11 +217,11 @@
 	{
 		if (![self isDisplayingPageForIndex:i])
 		{
-			UIView* pageView = [pagingDelegate pagingScrollView:self pageForIndex:i];
+			UIView *pageView = [pagingDelegate pagingScrollView:self pageForIndex:i];
 			pageView.frame = [self frameForPageAtIndex:i];
 			[self addSubview:pageView];
 
-			MHPage* page = [[MHPage alloc] init];
+			MHPage *page = [[MHPage alloc] init];
 			page.index = i;
 			page.view = pageView;
 			[visiblePages addObject:page];
@@ -251,7 +258,7 @@
 {
 	self.contentSize = [self contentSizeForPagingScrollView];
 
-	for (MHPage* page in visiblePages)
+	for (MHPage *page in visiblePages)
 		page.view.frame = [self frameForPageAtIndex:page.index];
 
 	CGFloat pageWidth = self.bounds.size.width;

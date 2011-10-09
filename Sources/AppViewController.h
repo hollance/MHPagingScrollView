@@ -6,8 +6,8 @@
 	int numPages;
 }
 
-@property (nonatomic, retain) IBOutlet MHPagingScrollView* pagingScrollView;
-@property (nonatomic, retain) IBOutlet UIPageControl* pageControl;
+@property (nonatomic, retain) IBOutlet MHPagingScrollView *pagingScrollView;
+@property (nonatomic, retain) IBOutlet UIPageControl *pageControl;
 
 - (IBAction)pageTurn;
 

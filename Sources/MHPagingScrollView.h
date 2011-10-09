@@ -53,13 +53,13 @@
 /*!
  * Asks the delegate to return the number of pages.
  */
-- (NSInteger)numberOfPagesInPagingScrollView:(MHPagingScrollView*)pagingScrollView;
+- (NSInteger)numberOfPagesInPagingScrollView:(MHPagingScrollView *)pagingScrollView;
 
 /*!
  * Asks the delegate for a page to insert. The delegate should ask for a
  * reusable view using dequeueReusablePageView.
  */
-- (UIView*)pagingScrollView:(MHPagingScrollView*)pagingScrollView pageForIndex:(NSInteger)index;
+- (UIView *)pagingScrollView:(MHPagingScrollView *)pagingScrollView pageForIndex:(NSInteger)index;
 
 @end
 
@@ -73,16 +73,9 @@
  * property.
  */
 @interface MHPagingScrollView : UIScrollView
-{
-	NSMutableSet* recycledPages;
-	NSMutableSet* visiblePages;
-
-	int firstVisiblePageIndexBeforeRotation;      // for autorotation
-	CGFloat percentScrolledIntoFirstVisiblePage;
-}
 
 /*! The delegate for paging events. */
-@property (nonatomic, assign) IBOutlet id<MHPagingScrollViewDelegate> pagingDelegate;
+@property (nonatomic, assign) IBOutlet id <MHPagingScrollViewDelegate> pagingDelegate;
 
 /*! The width of the preview pages. */
 @property (nonatomic, assign) UIEdgeInsets previewInsets;
@@ -100,7 +93,7 @@
 /*!
  * Returns a reusable UIView object.
  */
-- (UIView*)dequeueReusablePage;
+- (UIView *)dequeueReusablePage;
 
 /*!
  * Reloads the pages. Call this method when the number of pages has changed.
