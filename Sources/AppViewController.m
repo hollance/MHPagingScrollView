@@ -21,7 +21,7 @@
 
 - (void)releaseObjects
 {
-    [pagingScrollView release], pagingScrollView = nil;
+	[pagingScrollView release], pagingScrollView = nil;
 	[pageControl release], pageControl = nil;
 }
 
@@ -42,16 +42,14 @@
 	[pagingScrollView didReceiveMemoryWarning];
 }
 
-#pragma mark -
-#pragma mark Actions
+#pragma mark - Actions
 
 - (IBAction)pageTurn
 {
 	[pagingScrollView selectPageAtIndex:pageControl.currentPage animated:YES];
 }
 
-#pragma mark -
-#pragma mark View Controller Rotation
+#pragma mark - View Controller Rotation
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation 
 {
@@ -68,8 +66,7 @@
 	[pagingScrollView afterRotation];
 }
 
-#pragma mark -
-#pragma mark UIScrollViewDelegate
+#pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)theScrollView
 {
@@ -87,8 +84,7 @@
 	}
 }
 
-#pragma mark -
-#pragma mark MHPagingScrollViewDelegate
+#pragma mark - MHPagingScrollViewDelegate
 
 - (NSInteger)numberOfPagesInPagingScrollView:(MHPagingScrollView *)pagingScrollView
 {
