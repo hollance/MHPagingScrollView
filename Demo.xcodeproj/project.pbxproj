@@ -10,31 +10,33 @@
 		7B0F4C981363017C00DE4938 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0F4C971363017C00DE4938 /* UIKit.framework */; };
 		7B0F4C9A1363017C00DE4938 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0F4C991363017C00DE4938 /* Foundation.framework */; };
 		7B0F4C9C1363017C00DE4938 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0F4C9B1363017C00DE4938 /* CoreGraphics.framework */; };
-		7B5F044B136302F3006782F8 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5F0439136302F3006782F8 /* MainWindow.xib */; };
-		7B5F044C136302F3006782F8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F043C136302F3006782F8 /* AppDelegate.m */; };
-		7B5F044D136302F3006782F8 /* AppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F043E136302F3006782F8 /* AppViewController.m */; };
-		7B5F044E136302F3006782F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F043F136302F3006782F8 /* main.m */; };
-		7B94AC4C136BF9900079ECCB /* PageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B94AC4B136BF9900079ECCB /* PageView.m */; };
-		7BC2ED65136C3A4100A9D610 /* MHPagingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC2ED64136C3A4100A9D610 /* MHPagingScrollView.m */; };
+		7B109B201684D7F8008D78E0 /* DemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B109B141684D7F8008D78E0 /* DemoAppDelegate.m */; };
+		7B109B211684D7F8008D78E0 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B109B161684D7F8008D78E0 /* DemoViewController.m */; };
+		7B109B231684D7F8008D78E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B109B181684D7F8008D78E0 /* main.m */; };
+		7B109B251684D7F8008D78E0 /* PageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B109B1B1684D7F8008D78E0 /* PageView.m */; };
+		7B109B261684D7F8008D78E0 /* MHPagingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B109B1F1684D7F8008D78E0 /* MHPagingScrollView.m */; };
+		7B109B291684D8A2008D78E0 /* DemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B109B281684D8A2008D78E0 /* DemoViewController.xib */; };
+		7B109B321684DD17008D78E0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B109B311684DD17008D78E0 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7B0F4C931363017C00DE4938 /* Paging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paging.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B0F4C931363017C00DE4938 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B0F4C971363017C00DE4938 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7B0F4C991363017C00DE4938 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7B0F4C9B1363017C00DE4938 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		7B5F0438136302F3006782F8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7B5F0439136302F3006782F8 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		7B5F043B136302F3006782F8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		7B5F043C136302F3006782F8 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7B5F043D136302F3006782F8 /* AppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppViewController.h; sourceTree = "<group>"; };
-		7B5F043E136302F3006782F8 /* AppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppViewController.m; sourceTree = "<group>"; };
-		7B5F043F136302F3006782F8 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7B5F0440136302F3006782F8 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
-		7B94AC4A136BF9900079ECCB /* PageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageView.h; sourceTree = "<group>"; };
-		7B94AC4B136BF9900079ECCB /* PageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageView.m; sourceTree = "<group>"; };
-		7BC2ED63136C3A4100A9D610 /* MHPagingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHPagingScrollView.h; sourceTree = "<group>"; };
-		7BC2ED64136C3A4100A9D610 /* MHPagingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHPagingScrollView.m; sourceTree = "<group>"; };
+		7B109B131684D7F8008D78E0 /* DemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAppDelegate.h; sourceTree = "<group>"; };
+		7B109B141684D7F8008D78E0 /* DemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAppDelegate.m; sourceTree = "<group>"; };
+		7B109B151684D7F8008D78E0 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
+		7B109B161684D7F8008D78E0 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
+		7B109B171684D7F8008D78E0 /* Demo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Demo-Info.plist"; sourceTree = "<group>"; };
+		7B109B181684D7F8008D78E0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7B109B1A1684D7F8008D78E0 /* PageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageView.h; sourceTree = "<group>"; };
+		7B109B1B1684D7F8008D78E0 /* PageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageView.m; sourceTree = "<group>"; };
+		7B109B1C1684D7F8008D78E0 /* Demo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Demo-Prefix.pch"; sourceTree = "<group>"; };
+		7B109B1E1684D7F8008D78E0 /* MHPagingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHPagingScrollView.h; sourceTree = "<group>"; };
+		7B109B1F1684D7F8008D78E0 /* MHPagingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHPagingScrollView.m; sourceTree = "<group>"; };
+		7B109B281684D8A2008D78E0 /* DemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoViewController.xib; sourceTree = "<group>"; };
+		7B109B311684DD17008D78E0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +56,8 @@
 		7B0F4C881363017C00DE4938 = {
 			isa = PBXGroup;
 			children = (
-				7B5F043A136302F3006782F8 /* Sources */,
-				7B5F0437136302F3006782F8 /* Resources */,
+				7B109B1D1684D7F8008D78E0 /* MHPagingScrollView */,
+				7B109B121684D7F8008D78E0 /* Demo */,
 				7B0F4C961363017C00DE4938 /* Frameworks */,
 				7B0F4C941363017C00DE4938 /* Products */,
 			);
@@ -64,7 +66,7 @@
 		7B0F4C941363017C00DE4938 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7B0F4C931363017C00DE4938 /* Paging.app */,
+				7B0F4C931363017C00DE4938 /* Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,38 +81,47 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		7B5F0437136302F3006782F8 /* Resources */ = {
+		7B109B121684D7F8008D78E0 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				7B5F0438136302F3006782F8 /* Info.plist */,
-				7B5F0439136302F3006782F8 /* MainWindow.xib */,
+				7B109B131684D7F8008D78E0 /* DemoAppDelegate.h */,
+				7B109B141684D7F8008D78E0 /* DemoAppDelegate.m */,
+				7B109B151684D7F8008D78E0 /* DemoViewController.h */,
+				7B109B161684D7F8008D78E0 /* DemoViewController.m */,
+				7B109B281684D8A2008D78E0 /* DemoViewController.xib */,
+				7B109B1A1684D7F8008D78E0 /* PageView.h */,
+				7B109B1B1684D7F8008D78E0 /* PageView.m */,
+				7B109B271684D7FF008D78E0 /* Supporting Files */,
 			);
-			path = Resources;
+			path = Demo;
 			sourceTree = "<group>";
 		};
-		7B5F043A136302F3006782F8 /* Sources */ = {
+		7B109B1D1684D7F8008D78E0 /* MHPagingScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				7B5F043B136302F3006782F8 /* AppDelegate.h */,
-				7B5F043C136302F3006782F8 /* AppDelegate.m */,
-				7B5F043D136302F3006782F8 /* AppViewController.h */,
-				7B5F043E136302F3006782F8 /* AppViewController.m */,
-				7B5F043F136302F3006782F8 /* main.m */,
-				7B5F0440136302F3006782F8 /* Prefix.pch */,
-				7B94AC4A136BF9900079ECCB /* PageView.h */,
-				7B94AC4B136BF9900079ECCB /* PageView.m */,
-				7BC2ED63136C3A4100A9D610 /* MHPagingScrollView.h */,
-				7BC2ED64136C3A4100A9D610 /* MHPagingScrollView.m */,
+				7B109B1E1684D7F8008D78E0 /* MHPagingScrollView.h */,
+				7B109B1F1684D7F8008D78E0 /* MHPagingScrollView.m */,
 			);
-			path = Sources;
+			path = MHPagingScrollView;
+			sourceTree = "<group>";
+		};
+		7B109B271684D7FF008D78E0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7B109B311684DD17008D78E0 /* Default-568h@2x.png */,
+				7B109B171684D7F8008D78E0 /* Demo-Info.plist */,
+				7B109B1C1684D7F8008D78E0 /* Demo-Prefix.pch */,
+				7B109B181684D7F8008D78E0 /* main.m */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7B0F4C921363017C00DE4938 /* Paging */ = {
+		7B0F4C921363017C00DE4938 /* Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7B0F4CB41363017C00DE4938 /* Build configuration list for PBXNativeTarget "Paging" */;
+			buildConfigurationList = 7B0F4CB41363017C00DE4938 /* Build configuration list for PBXNativeTarget "Demo" */;
 			buildPhases = (
 				7B0F4C8F1363017C00DE4938 /* Sources */,
 				7B0F4C901363017C00DE4938 /* Frameworks */,
@@ -120,9 +131,9 @@
 			);
 			dependencies = (
 			);
-			name = Paging;
+			name = Demo;
 			productName = App;
-			productReference = 7B0F4C931363017C00DE4938 /* Paging.app */;
+			productReference = 7B0F4C931363017C00DE4938 /* Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -134,7 +145,7 @@
 				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = Hollance;
 			};
-			buildConfigurationList = 7B0F4C8D1363017C00DE4938 /* Build configuration list for PBXProject "Paging" */;
+			buildConfigurationList = 7B0F4C8D1363017C00DE4938 /* Build configuration list for PBXProject "Demo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -146,7 +157,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7B0F4C921363017C00DE4938 /* Paging */,
+				7B0F4C921363017C00DE4938 /* Demo */,
 			);
 		};
 /* End PBXProject section */
@@ -156,7 +167,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B5F044B136302F3006782F8 /* MainWindow.xib in Resources */,
+				7B109B291684D8A2008D78E0 /* DemoViewController.xib in Resources */,
+				7B109B321684DD17008D78E0 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,11 +179,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B5F044C136302F3006782F8 /* AppDelegate.m in Sources */,
-				7B5F044D136302F3006782F8 /* AppViewController.m in Sources */,
-				7B5F044E136302F3006782F8 /* main.m in Sources */,
-				7B94AC4C136BF9900079ECCB /* PageView.m in Sources */,
-				7BC2ED65136C3A4100A9D610 /* MHPagingScrollView.m in Sources */,
+				7B109B201684D7F8008D78E0 /* DemoAppDelegate.m in Sources */,
+				7B109B211684D7F8008D78E0 /* DemoViewController.m in Sources */,
+				7B109B231684D7F8008D78E0 /* main.m in Sources */,
+				7B109B251684D7F8008D78E0 /* PageView.m in Sources */,
+				7B109B261684D7F8008D78E0 /* MHPagingScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,7 +201,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -202,7 +214,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 			};
@@ -212,15 +224,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Sources/Prefix.pch;
-				INFOPLIST_FILE = Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Demo/Demo-Prefix.pch";
+				INFOPLIST_FILE = "Demo/Demo-Info.plist";
+				PRODUCT_NAME = Demo;
 				RUN_CLANG_STATIC_ANALYZER = YES;
-				WARNING_CFLAGS = "-Wall";
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+					"-Wno-unused-parameter",
+				);
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -229,15 +245,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Sources/Prefix.pch;
-				INFOPLIST_FILE = Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Demo/Demo-Prefix.pch";
+				INFOPLIST_FILE = "Demo/Demo-Info.plist";
+				PRODUCT_NAME = Demo;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				VALIDATE_PRODUCT = YES;
-				WARNING_CFLAGS = "-Wall";
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+					"-Wno-unused-parameter",
+				);
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -245,7 +265,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7B0F4C8D1363017C00DE4938 /* Build configuration list for PBXProject "Paging" */ = {
+		7B0F4C8D1363017C00DE4938 /* Build configuration list for PBXProject "Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7B0F4CB21363017C00DE4938 /* Debug */,
@@ -254,7 +274,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7B0F4CB41363017C00DE4938 /* Build configuration list for PBXNativeTarget "Paging" */ = {
+		7B0F4CB41363017C00DE4938 /* Build configuration list for PBXNativeTarget "Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7B0F4CB51363017C00DE4938 /* Debug */,

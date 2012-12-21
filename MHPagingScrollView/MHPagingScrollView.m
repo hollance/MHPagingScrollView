@@ -3,39 +3,27 @@
 
 @interface MHPage : NSObject
 
-@property (nonatomic, retain) UIView *view;
-@property (nonatomic, assign) NSInteger index;
+@property (nonatomic, strong) UIView *view;
+@property (nonatomic, assign) NSUInteger index;
 
 @end
 
 @implementation MHPage
 
-@synthesize view;
-@synthesize index;
-
-- (void)dealloc
-{
-	[view release];
-	[super dealloc];
-}
-
 @end
 
 @implementation MHPagingScrollView
 {
-	NSMutableSet *recycledPages;
-	NSMutableSet *visiblePages;
-	int firstVisiblePageIndexBeforeRotation;      // for autorotation
-	CGFloat percentScrolledIntoFirstVisiblePage;
+	NSMutableSet *_recycledPages;
+	NSMutableSet *_visiblePages;
+	NSUInteger _firstVisiblePageIndexBeforeRotation;  // for autorotation
+	CGFloat _percentScrolledIntoFirstVisiblePage;
 }
-
-@synthesize previewInsets;
-@synthesize pagingDelegate;
 
 - (void)commonInit
 {
-	recycledPages = [[NSMutableSet alloc] init];
-	visiblePages  = [[NSMutableSet alloc] init];
+	_recycledPages = [[NSMutableSet alloc] init];
+	_visiblePages  = [[NSMutableSet alloc] init];
 
 	self.pagingEnabled = YES;
 	self.showsVerticalScrollIndicator = NO;
@@ -61,13 +49,6 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[recycledPages release];
-	[visiblePages release];
-	[super dealloc];
-}
-
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
 {
 	// This allows for touch handling outside of the scroll view's bounds.
@@ -75,15 +56,15 @@
 	CGPoint parentLocation = [self convertPoint:point toView:self.superview];
 
 	CGRect responseRect = self.frame;
-	responseRect.origin.x -= previewInsets.left;
-	responseRect.origin.y -= previewInsets.top;
-	responseRect.size.width += (previewInsets.left + previewInsets.right);
-	responseRect.size.height += (previewInsets.top + previewInsets.bottom);
+	responseRect.origin.x -= _previewInsets.left;
+	responseRect.origin.y -= _previewInsets.top;
+	responseRect.size.width += (_previewInsets.left + _previewInsets.right);
+	responseRect.size.height += (_previewInsets.top + _previewInsets.bottom);
 
 	return CGRectContainsPoint(responseRect, parentLocation);
 }
 
-- (void)selectPageAtIndex:(NSInteger)index animated:(BOOL)animated
+- (void)selectPageAtIndex:(NSUInteger)index animated:(BOOL)animated
 {
 	if (animated)
 	{
@@ -98,16 +79,16 @@
 		[UIView commitAnimations];
 }
 
-- (NSInteger)indexOfSelectedPage
+- (NSUInteger)indexOfSelectedPage
 {
 	CGFloat width = self.bounds.size.width;
 	int currentPage = (self.contentOffset.x + width/2.0f) / width;
 	return currentPage;
 }
 
-- (NSInteger)numberOfPages
+- (NSUInteger)numberOfPages
 {
-	return [pagingDelegate numberOfPagesInPagingScrollView:self];
+	return [_pagingDelegate numberOfPagesInPagingScrollView:self];
 }
 
 - (CGSize)contentSizeForPagingScrollView
@@ -118,7 +99,7 @@
 
 - (BOOL)isDisplayingPageForIndex:(NSUInteger)index
 {
-	for (MHPage *page in visiblePages)
+	for (MHPage *page in _visiblePages)
 	{
 		if (page.index == index)
 			return YES;
@@ -128,11 +109,11 @@
 
 - (UIView *)dequeueReusablePage
 {
-	MHPage *page = [recycledPages anyObject];
+	MHPage *page = [_recycledPages anyObject];
 	if (page != nil)
 	{
-		UIView *view = [[page.view retain] autorelease];
-		[recycledPages removeObject:page];
+		UIView *view = page.view;
+		[_recycledPages removeObject:page];
 		return view;
 	}
 	return nil;
@@ -149,38 +130,38 @@
 {
 	CGRect visibleBounds = self.bounds;
 	CGFloat pageWidth = CGRectGetWidth(visibleBounds);
-	visibleBounds.origin.x -= previewInsets.left;
-	visibleBounds.size.width += (previewInsets.left + previewInsets.right);
+	visibleBounds.origin.x -= _previewInsets.left;
+	visibleBounds.size.width += (_previewInsets.left + _previewInsets.right);
 
 	int firstNeededPageIndex = floorf(CGRectGetMinX(visibleBounds) / pageWidth);
-	int lastNeededPageIndex = floorf((CGRectGetMaxX(visibleBounds)-1) / pageWidth);
+	int lastNeededPageIndex = floorf((CGRectGetMaxX(visibleBounds) - 1.0f) / pageWidth);
 	firstNeededPageIndex = MAX(firstNeededPageIndex, 0);
-	lastNeededPageIndex = MIN(lastNeededPageIndex, [self numberOfPages] - 1);
+	lastNeededPageIndex = MIN(lastNeededPageIndex, (int)[self numberOfPages] - 1);
 
-	for (MHPage *page in visiblePages)
+	for (MHPage *page in _visiblePages)
 	{
-		if (page.index < firstNeededPageIndex || page.index > lastNeededPageIndex)
+		if ((int)page.index < firstNeededPageIndex || (int)page.index > lastNeededPageIndex)
 		{
-			[recycledPages addObject:page];
+			[_recycledPages addObject:page];
 			[page.view removeFromSuperview];
 		}
 	}
 
-	[visiblePages minusSet:recycledPages];
+	[_visiblePages minusSet:_recycledPages];
 
 	for (int i = firstNeededPageIndex; i <= lastNeededPageIndex; ++i)
 	{
 		if (![self isDisplayingPageForIndex:i])
 		{
-			UIView *pageView = [pagingDelegate pagingScrollView:self pageForIndex:i];
+			UIView *pageView = [_pagingDelegate pagingScrollView:self pageForIndex:i];
 			pageView.frame = [self frameForPageAtIndex:i];
+			pageView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
 			[self addSubview:pageView];
 
 			MHPage *page = [[MHPage alloc] init];
 			page.index = i;
 			page.view = pageView;
-			[visiblePages addObject:page];
-			[page release];
+			[_visiblePages addObject:page];
 		}
 	}
 }
@@ -202,28 +183,28 @@
 	CGFloat pageWidth = self.bounds.size.width;
 
 	if (offset >= 0)
-		firstVisiblePageIndexBeforeRotation = floorf(offset / pageWidth);
+		_firstVisiblePageIndexBeforeRotation = floorf(offset / pageWidth);
 	else
-		firstVisiblePageIndexBeforeRotation = 0;
+		_firstVisiblePageIndexBeforeRotation = 0;
 
-	percentScrolledIntoFirstVisiblePage = offset / pageWidth - firstVisiblePageIndexBeforeRotation;
+	_percentScrolledIntoFirstVisiblePage = offset / pageWidth - _firstVisiblePageIndexBeforeRotation;
 }
 
 - (void)afterRotation
 {
 	self.contentSize = [self contentSizeForPagingScrollView];
 
-	for (MHPage *page in visiblePages)
+	for (MHPage *page in _visiblePages)
 		page.view.frame = [self frameForPageAtIndex:page.index];
 
 	CGFloat pageWidth = self.bounds.size.width;
-	CGFloat newOffset = (firstVisiblePageIndexBeforeRotation + percentScrolledIntoFirstVisiblePage) * pageWidth;
+	CGFloat newOffset = (_firstVisiblePageIndexBeforeRotation + _percentScrolledIntoFirstVisiblePage) * pageWidth;
 	self.contentOffset = CGPointMake(newOffset, 0);
 }
 
 - (void)didReceiveMemoryWarning
 {
-	[recycledPages removeAllObjects];
+	[_recycledPages removeAllObjects];
 }
 
 @end
