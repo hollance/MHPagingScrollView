@@ -47,6 +47,11 @@
 - (NSUInteger)indexOfSelectedPage;
 
 /*
+ * Returns the currently visible page.
+ */
+- (UIView *)centerPageView;
+
+/*
  * Returns a reusable UIView object.
  */
 - (UIView *)dequeueReusablePage;
