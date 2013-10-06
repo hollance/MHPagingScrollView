@@ -86,6 +86,15 @@
 	return currentPage;
 }
 
+- (UIView *)centerPageView {
+	for (MHPage *page in _visiblePages)
+	{
+		if (page.index == self.indexOfSelectedPage)
+			return page.view;
+	}
+	return nil;
+}
+
 - (NSUInteger)numberOfPages
 {
 	return [_pagingDelegate numberOfPagesInPagingScrollView:self];
