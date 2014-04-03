@@ -66,6 +66,9 @@
 
 - (void)selectPageAtIndex:(NSUInteger)index animated:(BOOL)animated
 {
+	CGPoint newContentOffset = CGPointMake(self.bounds.size.width * index, 0);
+	[self tilePagesAtPoint:newContentOffset];
+
 	if (animated)
 	{
 		[UIView beginAnimations:nil context:NULL];
@@ -73,7 +76,7 @@
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 	}
 
-	self.contentOffset = CGPointMake(self.bounds.size.width * index, 0);
+	self.contentOffset = newContentOffset;
 
 	if (animated)
 		[UIView commitAnimations];
@@ -126,21 +129,18 @@
 	return rect;
 }
 
-- (void)tilePages 
+- (void)tilePagesAtPoint:(CGPoint)newOffset
 {
-	CGRect visibleBounds = self.bounds;
-	CGFloat pageWidth = CGRectGetWidth(visibleBounds);
-	visibleBounds.origin.x -= _previewInsets.left;
-	visibleBounds.size.width += (_previewInsets.left + _previewInsets.right);
+	CGFloat pageWidth = self.bounds.size.width;
+	CGFloat minX = newOffset.x - _previewInsets.left;
+	CGFloat maxX = newOffset.x + pageWidth + _previewInsets.right - 1.0;
 
-	NSInteger firstNeededPageIndex = floorf(CGRectGetMinX(visibleBounds) / pageWidth);
-	NSInteger lastNeededPageIndex = floorf((CGRectGetMaxX(visibleBounds) - 1.0) / pageWidth);
-	firstNeededPageIndex = MAX(firstNeededPageIndex, 0);
-	lastNeededPageIndex = MIN(lastNeededPageIndex, (NSInteger)[self numberOfPages] - 1);
+	NSUInteger firstNeededPageIndex = MAX(minX / pageWidth, 0);
+	NSUInteger lastNeededPageIndex = MIN(maxX / pageWidth, (NSInteger)[self numberOfPages] - 1);
 
 	for (MHPage *page in _visiblePages)
 	{
-		if ((NSInteger)page.index < firstNeededPageIndex || (NSInteger)page.index > lastNeededPageIndex)
+		if (page.index < firstNeededPageIndex || page.index > lastNeededPageIndex)
 		{
 			[_recycledPages addObject:page];
 			[page.view removeFromSuperview];
@@ -149,7 +149,7 @@
 
 	[_visiblePages minusSet:_recycledPages];
 
-	for (NSInteger i = firstNeededPageIndex; i <= lastNeededPageIndex; ++i)
+	for (NSUInteger i = firstNeededPageIndex; i <= lastNeededPageIndex; ++i)
 	{
 		if (![self isDisplayingPageForIndex:i])
 		{
@@ -169,12 +169,12 @@
 - (void)reloadPages
 {
 	self.contentSize = [self contentSizeForPagingScrollView];
-	[self tilePages];
+	[self tilePagesAtPoint:self.contentOffset];
 }
 
 - (void)scrollViewDidScroll
 {
-	[self tilePages];
+	[self tilePagesAtPoint:self.contentOffset];
 }
 
 - (void)beforeRotation
