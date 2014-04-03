@@ -13,7 +13,7 @@
 
 	_numPages = 2;
 
-	self.pagingScrollView.previewInsets = UIEdgeInsetsMake(0.0f, 50.0f, 0.0f, 50.0f);
+	self.pagingScrollView.previewInsets = UIEdgeInsetsMake(0.0, 50.0, 0.0, 50.0);
 	[self.pagingScrollView reloadPages];
 
 	self.pageControl.currentPage = 0;

@@ -69,7 +69,7 @@
 	if (animated)
 	{
 		[UIView beginAnimations:nil context:NULL];
-		[UIView setAnimationDuration:0.3f];
+		[UIView setAnimationDuration:0.3];
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 	}
 
@@ -82,7 +82,7 @@
 - (NSUInteger)indexOfSelectedPage
 {
 	CGFloat width = self.bounds.size.width;
-	int currentPage = (self.contentOffset.x + width/2.0f) / width;
+	NSUInteger currentPage = (self.contentOffset.x + width/2.0) / width;
 	return currentPage;
 }
 
@@ -133,14 +133,14 @@
 	visibleBounds.origin.x -= _previewInsets.left;
 	visibleBounds.size.width += (_previewInsets.left + _previewInsets.right);
 
-	int firstNeededPageIndex = floorf(CGRectGetMinX(visibleBounds) / pageWidth);
-	int lastNeededPageIndex = floorf((CGRectGetMaxX(visibleBounds) - 1.0f) / pageWidth);
+	NSInteger firstNeededPageIndex = floorf(CGRectGetMinX(visibleBounds) / pageWidth);
+	NSInteger lastNeededPageIndex = floorf((CGRectGetMaxX(visibleBounds) - 1.0) / pageWidth);
 	firstNeededPageIndex = MAX(firstNeededPageIndex, 0);
-	lastNeededPageIndex = MIN(lastNeededPageIndex, (int)[self numberOfPages] - 1);
+	lastNeededPageIndex = MIN(lastNeededPageIndex, (NSInteger)[self numberOfPages] - 1);
 
 	for (MHPage *page in _visiblePages)
 	{
-		if ((int)page.index < firstNeededPageIndex || (int)page.index > lastNeededPageIndex)
+		if ((NSInteger)page.index < firstNeededPageIndex || (NSInteger)page.index > lastNeededPageIndex)
 		{
 			[_recycledPages addObject:page];
 			[page.view removeFromSuperview];
@@ -149,7 +149,7 @@
 
 	[_visiblePages minusSet:_recycledPages];
 
-	for (int i = firstNeededPageIndex; i <= lastNeededPageIndex; ++i)
+	for (NSInteger i = firstNeededPageIndex; i <= lastNeededPageIndex; ++i)
 	{
 		if (![self isDisplayingPageForIndex:i])
 		{

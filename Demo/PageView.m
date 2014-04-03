@@ -9,11 +9,10 @@
 	{
 		self.opaque = YES;
 
-		self.backgroundColor = [UIColor
-			colorWithRed:(float)arc4random() / 0xFFFFFFFF
-			green:(float)arc4random() / 0xFFFFFFFF
-			blue:(float)arc4random() / 0xFFFFFFFF
-			alpha:1.0];
+		self.backgroundColor = [UIColor colorWithRed:(CGFloat)arc4random() / 0xFFFFFFFF
+		                                       green:(CGFloat)arc4random() / 0xFFFFFFFF
+		                                        blue:(CGFloat)arc4random() / 0xFFFFFFFF
+		                                       alpha:1.0];
 
 		self.textColor = [UIColor whiteColor];
 		self.textAlignment = UITextAlignmentCenter;
@@ -22,9 +21,9 @@
 	return self;
 }
 
-- (void)setPageIndex:(int)newIndex
+- (void)setPageIndex:(NSUInteger)newIndex
 {
-	self.text = [NSString stringWithFormat:@"%d", newIndex];
+	self.text = [NSString stringWithFormat:@"%lu", (unsigned long)newIndex];
 }
 
 @end

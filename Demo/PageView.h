@@ -1,6 +1,6 @@
 
 @interface PageView : UILabel
 
-- (void)setPageIndex:(int)newIndex;
+- (void)setPageIndex:(NSUInteger)newIndex;
 
 @end
